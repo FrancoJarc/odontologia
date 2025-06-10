@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sedes y Consultorios - Clínica Odontológica</title>
+    <link rel="stylesheet" href="/css/estilos.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <h1>Clínica Odontológica</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="sedes-consultorios.html" class="active">Sedes</a></li>
+                    <li><a href="#">Equipamiento</a></li>
+                    <li><a href="#">Afiliados</a></li>
+                    <li><a href="#">Odontólogos</a></li>
+                    <li><a href="#">Turnos</a></li>
+                    <li><a href="#">Tratamientos</a></li>
+                    <li><a href="#">Historia Clínica</a></li>
+                    <li><a href="#">Portal Paciente</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="sedes-consultorios">
+        <div class="container">
+            <h2>Sedes y Consultorios</h2>
+
+            <form>
+                <fieldset>
+                    <legend>Registrar Sede</legend>
+                    <label for="nombre-sede">Nombre:</label>
+                    <input type="text" id="nombre-sede" name="nombre-sede" required />
+
+                    <label for="ciudad">Ciudad:</label>
+                    <input type="text" id="ciudad" name="ciudad" required />
+
+                    <label for="calle">Calle:</label>
+                    <input type="text" id="calle" name="calle" required />
+
+                    <label for="numero">Número:</label>
+                    <input type="number" id="numero" name="numero" min="1" required />
+                    <button type="submit">Crear Sede</button>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Registrar Consultorio</legend>
+                    <label for="id-consultorio">ID Consultorio:</label>
+                    <input type="text" id="id-consultorio" name="id-consultorio" required />
+
+                    <label for="numero-consultorio">Número:</label>
+                    <input type="number" id="numero-consultorio" name="numero-consultorio" min="1" required />
+
+                    <label for="id-sede-consultorio">ID Sede:</label>
+                    <select id="id-sede-consultorio" name="id-sede-consultorio" required>
+                        <option value="" disabled selected>Seleccione una sede</option>
+                        <option value="sede1">Sede Belgrano</option>
+                        <option value="sede2">Sede Liniers</option>
+                        <option value="sede3">Sede Palermo</option>
+                    </select>
+                    <button type="submit">Crear Consultorio</button>
+                </fieldset>
+
+            </form>
+        </div>
+    </section>
+
+</body>
+
+</html>
