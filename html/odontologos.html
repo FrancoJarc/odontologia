@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Odontólogos - Clínica Odontológica</title>
+    <link rel="stylesheet" href="/css/estilos.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+    <header>
+        <div class="container-nav">
+            <h1>Clínica Odontológica</h1>
+            <nav>
+                <ul>
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="sedes-consultorios.html">Sedes</a></li>
+                    <li><a href="equipamiento.html">Equipamiento</a></li>
+                    <li><a href="afiliados.html">Afiliados</a></li>
+                    <li><a href="odontologos.html">Odontólogos</a></li>
+                    <li><a href="citas.html">Citas</a></li>
+                    <li><a href="tratamientos.html">Tratamientos</a></li>
+                    <li><a href="historia-clinica.html">Historia Clínica</a></li>
+                    <li><a href="#">Portal Paciente</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <section class="odontologos">
+        <div class="container">
+            <h3>Lista de Odontólogos</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>DNI</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Especialidad</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Datos simulados -->
+                    <tr>
+                        <td>OD001</td>
+                        <td>30123456</td>
+                        <td>Lucía</td>
+                        <td>Gómez</td>
+                        <td>Ortodoncia</td>
+                    </tr>
+                    <tr>
+                        <td>OD002</td>
+                        <td>27111222</td>
+                        <td>Mariano</td>
+                        <td>Pérez</td>
+                        <td>Endodoncia</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h2>Registrar Odontólogo</h2>
+
+            <form>
+                <label for="dni">DNI:</label>
+                <input type="text" id="dni" name="dni" required />
+
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required />
+
+                <label for="apellido">Apellido:</label>
+                <input type="text" id="apellido" name="apellido" required />
+
+                <label for="id-especialidad">Especialidad:</label>
+                <select id="id-especialidad" name="id-especialidad" required>
+                    <option value="">Seleccionar Especialidad</option>
+                    <option value="ESP001">Ortodoncia</option>
+                    <option value="ESP002">Endodoncia</option>
+                    <option value="ESP003">Periodoncia</option>
+                    <option value="ESP004">Odontopediatría</option>
+                </select>
+
+                <button type="submit">Crear Odontólogo</button>
+            </form>
+
+        </div>
+    </section>
+
+</body>
+
+</html>

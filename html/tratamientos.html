@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tratamientos - Clínica Odontológica</title>
+    <link rel="stylesheet" href="/css/estilos.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+    <header>
+        <div class="container-nav">
+            <h1>Clínica Odontológica</h1>
+            <nav>
+                <ul>
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="sedes-consultorios.html">Sedes</a></li>
+                    <li><a href="equipamiento.html">Equipamiento</a></li>
+                    <li><a href="afiliados.html">Afiliados</a></li>
+                    <li><a href="odontologos.html">Odontólogos</a></li>
+                    <li><a href="citas.html">Citas</a></li>
+                    <li><a href="tratamientos.html">Tratamientos</a></li>
+                    <li><a href="historia-clinica.html">Historia Clínica</a></li>
+                    <li><a href="#">Portal Paciente</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="tratamientos">
+        <div class="container">
+            <h3>Lista de Tratamientos</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>TR001</td>
+                        <td>Control</td>
+                    </tr>
+                    <tr>
+                        <td>TR002</td>
+                        <td>Endodoncia</td>
+                    </tr>
+                    <tr>
+                        <td>TR003</td>
+                        <td>Limpieza</td>
+                    </tr>
+                    <tr>
+                        <td>TR004</td>
+                        <td>Ortodóncicos</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h2>Registrar Tratamiento</h2>
+
+            <form>
+                <label for="id-tratamiento">Código Tratamiento:</label>
+                <input type="text" id="id-tratamiento" name="id-tratamiento" required />
+
+                <label for="nombre-tratamiento">Nombre:</label>
+                <input type="text" id="nombre-tratamiento" name="nombre-tratamiento" required />
+
+                <button type="submit">Guardar Tratamiento</button>
+            </form>
+
+        </div>
+    </section>
+
+</body>
+
+</html>

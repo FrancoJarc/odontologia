@@ -5,11 +5,15 @@ body {
     color: #333;
 }
 
-.container {
+.container-nav {
     max-width: 1100px;
     margin: 0 auto;
     padding: 16px;
+    text-align: center;
+
 }
+
+
 
 header {
     background-color: #2C3E50;
@@ -28,6 +32,7 @@ nav ul {
     margin: 8px 0 0;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     gap: 16px;
 }
 
@@ -116,6 +121,14 @@ nav a:hover {
 }
 
 
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 16px;
+
+
+}
 
 /*Sedes*/
 
@@ -221,4 +234,586 @@ option {
     font-size: 16px;
     color: #333;
     background-color: #fff;
+}
+
+
+/*Equipamiento*/
+/* Estilo general para secciones */
+.equipamiento {
+    background-color: #f9f9f9;
+    padding: 40px 20px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.equipamiento h2,
+.equipamiento h3 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 24px;
+    font-weight: 600;
+}
+
+/* Formulario */
+.equipamiento form {
+    max-width: 700px;
+    margin: 0 auto 40px auto;
+    background-color: #fff;
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    display: grid;
+    gap: 16px;
+}
+
+.equipamiento label {
+    font-weight: 500;
+    color: #333;
+}
+
+.equipamiento input,
+.equipamiento select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    width: 100%;
+    font-family: 'Roboto', sans-serif;
+    background-color: #fff;
+}
+
+.equipamiento select:focus,
+.equipamiento input:focus {
+    outline: none;
+    border-color: #5a9bd5;
+    box-shadow: 0 0 0 2px rgba(90, 155, 213, 0.2);
+}
+
+.equipamiento button {
+    padding: 12px;
+    background-color: #007acc;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.equipamiento button:hover {
+    background-color: #005f99;
+}
+
+/* Tabla */
+.equipamiento table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    font-size: 15px;
+}
+
+.equipamiento th,
+.equipamiento td {
+    padding: 12px 16px;
+    border-bottom: 1px solid #eee;
+    text-align: left;
+}
+
+.equipamiento th {
+    background-color: #f0f0f0;
+    font-weight: 600;
+    color: #444;
+}
+
+.equipamiento tr:last-child td {
+    border-bottom: none;
+}
+
+@media (max-width: 768px) {
+    .equipamiento form {
+        padding: 16px;
+    }
+
+    .equipamiento table,
+    .equipamiento thead,
+    .equipamiento tbody,
+    .equipamiento th,
+    .equipamiento td,
+    .equipamiento tr {
+        display: block;
+    }
+
+    .equipamiento tr {
+        margin-bottom: 15px;
+    }
+
+    .equipamiento td {
+        padding: 8px;
+        border: none;
+        border-bottom: 1px solid #eee;
+        position: relative;
+        padding-left: 50%;
+    }
+
+    .equipamiento td::before {
+        position: absolute;
+        top: 8px;
+        left: 16px;
+        width: 45%;
+        white-space: nowrap;
+        font-weight: bold;
+        color: #555;
+    }
+
+    .equipamiento td:nth-of-type(1)::before {
+        content: "ID";
+    }
+
+    .equipamiento td:nth-of-type(2)::before {
+        content: "ID Consultorio";
+    }
+
+    .equipamiento td:nth-of-type(3)::before {
+        content: "N° Serie";
+    }
+
+    .equipamiento td:nth-of-type(4)::before {
+        content: "Descripción";
+    }
+
+    .equipamiento td:nth-of-type(5)::before {
+        content: "Cantidad";
+    }
+
+    .equipamiento td:nth-of-type(6)::before {
+        content: "Ubicación";
+    }
+
+    .equipamiento td:nth-of-type(7)::before {
+        content: "Último Mantenimiento";
+    }
+}
+
+
+/*Afiliados*/
+
+.afiliados {
+    padding: 40px 20px;
+    background-color: #f9f9f9;
+}
+
+.afiliados h2,
+.afiliados h3 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.afiliados form {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 40px;
+    border-radius: 12px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.afiliados form label {
+    display: block;
+    margin-top: 12px;
+    font-weight: 500;
+}
+
+.afiliados form input,
+.afiliados form select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 6px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+}
+
+.afiliados form button {
+    margin-top: 20px;
+    background-color: #0077cc;
+    color: white;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.afiliados form button:hover {
+    background-color: #005fa3;
+}
+
+.afiliados table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+.afiliados table th,
+.afiliados table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+    font-size: 15px;
+}
+
+.afiliados table th {
+    background-color: #0077cc;
+    color: white;
+    font-weight: 600;
+}
+
+.afiliados table tr:hover {
+    background-color: #f2f2f2;
+}
+
+.afiliados hr {
+    margin: 50px 0;
+    border: none;
+    border-top: 1px solid #ccc;
+}
+
+
+
+/*Odontologos*/
+
+.odontologos {
+    padding: 40px 20px;
+    background-color: #fefefe;
+}
+
+.odontologos h2,
+.odontologos h3 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.odontologos form {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 40px;
+    border-radius: 12px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.odontologos form label {
+    display: block;
+    margin-top: 12px;
+    font-weight: 500;
+}
+
+.odontologos form input,
+.odontologos form select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 6px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+}
+
+.odontologos form button {
+    margin-top: 20px;
+    background-color: #0077cc;
+    color: white;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.odontologos form button:hover {
+    background-color: #005fa3;
+}
+
+.odontologos table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+.odontologos table th,
+.odontologos table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+    font-size: 15px;
+}
+
+.odontologos table th {
+    background-color: #0077cc;
+    color: white;
+    font-weight: 600;
+}
+
+.odontologos table tr:hover {
+    background-color: #f2f2f2;
+}
+
+
+/*Citas*/
+
+.citas {
+    padding: 40px 20px;
+    background-color: #fdfdfd;
+}
+
+.citas h2,
+.citas h3 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.citas form {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 40px;
+    border-radius: 12px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.citas form label {
+    display: block;
+    margin-top: 12px;
+    font-weight: 500;
+}
+
+.citas form input,
+.citas form select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 6px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+}
+
+.citas form button {
+    margin-top: 20px;
+    background-color: #0077cc;
+    color: white;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.citas form button:hover {
+    background-color: #005fa3;
+}
+
+.citas table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+.citas table th,
+.citas table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+    font-size: 15px;
+}
+
+.citas table th {
+    background-color: #0077cc;
+    color: white;
+    font-weight: 600;
+}
+
+.citas table tr:hover {
+    background-color: #f2f2f2;
+}
+
+
+
+/*Tratamientos*/
+.tratamientos {
+    padding: 40px 20px;
+    background-color: #fefefe;
+}
+
+.tratamientos h2,
+.tratamientos h3 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.tratamientos form {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 40px;
+    border-radius: 12px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.tratamientos form label {
+    display: block;
+    margin-top: 12px;
+    font-weight: 500;
+}
+
+.tratamientos form input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 6px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+}
+
+.tratamientos form button {
+    margin-top: 20px;
+    background-color: #0077cc;
+    color: white;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.tratamientos form button:hover {
+    background-color: #005fa3;
+}
+
+.tratamientos table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+.tratamientos table th,
+.tratamientos table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+    font-size: 15px;
+}
+
+.tratamientos table th {
+    background-color: #0077cc;
+    color: white;
+    font-weight: 600;
+}
+
+.tratamientos table tr:hover {
+    background-color: #f2f2f2;
+}
+
+
+
+/*Historia clinica*/
+.historia {
+    padding: 40px 20px;
+}
+
+.historia h2 {
+    font-size: 30px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.historia table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+.historia table th,
+.historia table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+    font-size: 15px;
+}
+
+.historia table th {
+    background-color: #0077cc;
+    color: white;
+    font-weight: 600;
+}
+
+.historia table tr:hover {
+    background-color: #f2f2f2;
+}
+
+
+.btn-paciente {
+    display: inline-block;
+    padding: 8px 14px;
+    background-color: #0077cc;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.btn-paciente:hover {
+    background-color: #005fa3;
+}
+
+
+.centrado {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.btn-paciente-volver {
+    padding: 10px 20px;
+    background-color: #0077cc;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: background-color 0.3s;
+}
+
+.btn-paciente-volver:hover {
+    background-color: #005fa3;
 }

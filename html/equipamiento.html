@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Equipamiento - Clínica Odontológica</title>
+    <link rel="stylesheet" href="/css/estilos.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+    <header>
+        <div class="container-nav">
+            <h1>Clínica Odontológica</h1>
+            <nav>
+                <ul>
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="sedes-consultorios.html">Sedes</a></li>
+                    <li><a href="equipamiento.html">Equipamiento</a></li>
+                    <li><a href="afiliados.html">Afiliados</a></li>
+                    <li><a href="odontologos.html">Odontólogos</a></li>
+                    <li><a href="citas.html">Citas</a></li>
+                    <li><a href="tratamientos.html">Tratamientos</a></li>
+                    <li><a href="historia-clinica.html">Historia Clínica</a></li>
+                    <li><a href="#">Portal Paciente</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="afiliados">
+        <div class="container">
+            <h2>Equipamiento Registrado</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>ID Consultorio</th>
+                        <th>N° Serie</th>
+                        <th>Descripción</th>
+                        <th>Cantidad</th>
+                        <th>Ubicación</th>
+                        <th>Último Mantenimiento</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>EQ001</td>
+                        <td>C001</td>
+                        <td>SN12345</td>
+                        <td>Radiografía digital</td>
+                        <td>1</td>
+                        <td>Consultorio 1</td>
+                        <td>2025-05-01</td>
+                    </tr>
+
+                    <tr>
+                        <td>EQ002</td>
+                        <td>C001</td>
+                        <td>SN55427</td>
+                        <td>Torno especial</td>
+                        <td>4</td>
+                        <td>Consultorio 2</td>
+                        <td>2025-05-11</td>
+                    </tr>
+
+                </tbody>
+            </table>
+  
+
+
+            <h2>Registro de Equipamiento</h2>
+        
+            <form>        
+                <label for="id-consultorio">Consultorio:</label>
+                <select id="id-consultorio" name="id-consultorio" required>
+                    <option value="" disabled selected>Seleccionar consultorio</option>
+                    <option value="C001">C001</option>
+                    <option value="C002">C002</option>
+                    <option value="C003">C003</option>
+                </select>
+        
+                <label for="numero-serie">Número de Serie:</label>
+                <input type="text" id="numero-serie" name="numero-serie" required />
+        
+                <label for="descripcion">Descripción:</label>
+                <input type="text" id="descripcion" name="descripcion" required />
+        
+                <label for="cantidad">Cantidad:</label>
+                <input type="number" id="cantidad" name="cantidad" min="1" required />
+        
+                <label for="ubicacion">Ubicación:</label>
+                <input type="text" id="ubicacion" name="ubicacion" required />
+        
+                <label for="fecha-mantenimiento">Fecha Último Mantenimiento:</label>
+                <input type="date" id="fecha-mantenimiento" name="fecha-mantenimiento" required />
+        
+                <button type="submit">Registrar</button>
+            </form>
+
+        </div>
+    </section>
+
+
+    
+
+</body>
+
+</html>

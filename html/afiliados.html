@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Afiliados - Clínica Odontológica</title>
+    <link rel="stylesheet" href="/css/estilos.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+    <header>
+        <div class="container-nav">
+            <h1>Clínica Odontológica</h1>
+            <nav>
+                <ul>
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="sedes-consultorios.html">Sedes</a></li>
+                    <li><a href="equipamiento.html">Equipamiento</a></li>
+                    <li><a href="afiliados.html">Afiliados</a></li>
+                    <li><a href="odontologos.html">Odontólogos</a></li>
+                    <li><a href="citas.html">Citas</a></li>
+                    <li><a href="tratamientos.html">Tratamientos</a></li>
+                    <li><a href="historia-clinica.html">Historia Clínica</a></li>
+                    <li><a href="#">Portal Paciente</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="afiliados">
+        <div class="container">
+            <h3>Lista de Afiliados Grupales</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Convenio</th>
+                        <th>Descuento (%)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Ejemplo estático -->
+                    <tr>
+                        <td>AG01</td>
+                        <td>Obra Social X</td>
+                        <td>20</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            
+            <h2>Afiliados Grupales</h2>
+
+            <form class="form-grupal">
+                <label for="nombre-convenio">Nombre Convenio:</label>
+                <input type="text" id="nombre-convenio" name="nombre-convenio" required />
+
+                <label for="porcentaje-descuento">Porcentaje de Descuento:</label>
+                <input type="number" id="porcentaje-descuento" name="porcentaje-descuento" min="0" max="100" required />
+
+                <button type="submit">Crear Grupo</button>
+            </form>
+
+            
+                     
+            <h3>Lista de Afiliados Individuales</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>DNI</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Convenio</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Ejemplo estático -->
+                    <tr>
+                        <td>A001</td>
+                        <td>30123456</td>
+                        <td>Laura</td>
+                        <td>Gómez</td>
+                        <td>Obra Social X</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h2>Afiliados Individuales</h2>
+
+            <form class="form-individual">
+                <label for="dni">DNI:</label>
+                <input type="text" id="dni" name="dni" required />
+
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required />
+
+                <label for="apellido">Apellido:</label>
+                <input type="text" id="apellido" name="apellido" required />
+
+                <label for="fecha-nacimiento">Fecha de Nacimiento:</label>
+                <input type="date" id="fecha-nacimiento" name="fecha-nacimiento" required />
+
+                <label for="sexo">Sexo:</label>
+                <select id="sexo" name="sexo" required>
+                    <option value="">Seleccionar</option>
+                    <option value="M">Masculino</option>
+                    <option value="F">Femenino</option>
+                    <option value="X">Otro</option>
+                </select>
+
+                <label for="direccion">Dirección:</label>
+                <input type="text" id="direccion" name="direccion" required />
+
+                <label for="telefono-fijo">Teléfono Fijo:</label>
+                <input type="text" id="telefono-fijo" name="telefono-fijo" />
+
+                <label for="telefono-movil">Teléfono Móvil:</label>
+                <input type="text" id="telefono-movil" name="telefono-movil" required />
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required />
+
+                <label for="costo-tratamiento">Costos Tratamientos:</label>
+                <input type="number" id="costo-tratamiento" name="costo-tratamiento" min="0" step="0.01" required />
+
+                <label for="id-afiliado-grupal">Afiliado Grupal:</label>
+                <select id="id-afiliado-grupal" name="id-afiliado-grupal">
+                    <option value="">Ninguno</option>
+                    <option value="AG01">Obra Social X</option>
+                </select>
+
+                <button type="submit">Crear Afiliado</button>
+            </form>
+
+        </div>
+    </section>
+</body>
+
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Citas - Clínica Odontológica</title>
+    <link rel="stylesheet" href="/css/estilos.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+    <header>
+        <div class="container-nav">
+            <h1>Clínica Odontológica</h1>
+            <nav>
+                <ul>
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="sedes-consultorios.html">Sedes</a></li>
+                    <li><a href="equipamiento.html">Equipamiento</a></li>
+                    <li><a href="afiliados.html">Afiliados</a></li>
+                    <li><a href="odontologos.html">Odontólogos</a></li>
+                    <li><a href="citas.html">Citas</a></li>
+                    <li><a href="tratamientos.html">Tratamientos</a></li>
+                    <li><a href="historia-clinica.html">Historia Clínica</a></li>
+                    <li><a href="#">Portal Paciente</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <section class="citas">
+        <div class="container">
+            <h3>Lista de Citas</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID Cita</th>
+                        <th>Afiliado</th>
+                        <th>Odontólogo</th>
+                        <th>Sede</th>
+                        <th>Tratamiento</th>
+                        <th>Fecha</th>
+                        <th>Hora</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>CIT001</td>
+                        <td>AF001 - Juan Pérez</td>
+                        <td>OD001 - Lucía Gómez</td>
+                        <td>SE001 - Sede Centro</td>
+                        <td>TR001 - Limpieza</td>
+                        <td>2025-06-20</td>
+                        <td>20:00</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h2>Registrar Cita</h2>
+
+            <form>
+                <label for="id-afiliado">Número de afiliado </label>
+                <input type="number" placeholder="Ej: 45428484">
+
+                <label for="id-odontologo">Odontólogo:</label>
+                <select id="id-odontologo" name="id-odontologo" required>
+                    <option value="">Seleccionar odontólogo</option>
+                    <option value="OD001">OD001 - Lucía Gómez</option>
+                    <option value="OD002">OD002 - Mariano Pérez</option>
+                </select>
+
+                <label for="id-sede">Sede:</label>
+                <select id="id-sede" name="id-sede" required>
+                    <option value="">Seleccionar sede</option>
+                    <option value="SE001">SE001 - Sede Centro</option>
+                    <option value="SE002">SE002 - Sede Norte</option>
+                </select>
+
+                <label for="id-tratamiento">Motivo:</label>
+                <select id="id-tratamiento" name="id-tratamiento" required>
+                    <option value="">Seleccionar motivo</option>
+                    <option value="TR001">TR001 - Control</option>
+                    <option value="TR001">TR002 - Limpieza</option>
+                    <option value="TR002">TR003 - Endodoncia</option>
+                </select>
+
+                <label for="fecha">Dia:</label>
+                <input type="date" id="fecha" name="fecha" required />
+
+                <label for="hora">Hora:</label>
+                <input type="time" id="hora" name="hora" required />
+
+                <button type="submit">Crear Cita</button>
+            </form>
+
+        </div>
+    </section>
+
+</body>
+
+</html>
