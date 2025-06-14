@@ -15,15 +15,15 @@
             <h1>Clínica Odontológica</h1>
             <nav>
                 <ul>
-                    <li><a href="#">Inicio</a></li>
+                    <li><a href="index.html">Inicio</a></li>
                     <li><a href="sedes-consultorios.html">Sedes</a></li>
-                    <li><a href="equipamiento.html">Equipamiento</a></li>
+                    <li><a href="equipamiento.html">Equipamiento/Insumos</a></li>
                     <li><a href="afiliados.html">Afiliados</a></li>
                     <li><a href="odontologos.html">Odontólogos</a></li>
                     <li><a href="citas.html">Citas</a></li>
                     <li><a href="tratamientos.html">Tratamientos</a></li>
                     <li><a href="historia-clinica.html">Historia Clínica</a></li>
-                    <li><a href="#">Portal Paciente</a></li>
+                    <li><a href="portal-cliente.html">Portal Paciente</a></li>
                 </ul>
             </nav>
         </div>
@@ -54,7 +54,6 @@
                         <td>Consultorio 1</td>
                         <td>2025-05-01</td>
                     </tr>
-
                     <tr>
                         <td>EQ002</td>
                         <td>C001</td>
@@ -64,15 +63,11 @@
                         <td>Consultorio 2</td>
                         <td>2025-05-11</td>
                     </tr>
-
                 </tbody>
             </table>
-  
-
 
             <h2>Registro de Equipamiento</h2>
-        
-            <form>        
+            <form>
                 <label for="id-consultorio">Consultorio:</label>
                 <select id="id-consultorio" name="id-consultorio" required>
                     <option value="" disabled selected>Seleccionar consultorio</option>
@@ -80,30 +75,79 @@
                     <option value="C002">C002</option>
                     <option value="C003">C003</option>
                 </select>
-        
+
                 <label for="numero-serie">Número de Serie:</label>
                 <input type="text" id="numero-serie" name="numero-serie" required />
-        
+
                 <label for="descripcion">Descripción:</label>
                 <input type="text" id="descripcion" name="descripcion" required />
-        
+
                 <label for="cantidad">Cantidad:</label>
                 <input type="number" id="cantidad" name="cantidad" min="1" required />
-        
+
                 <label for="ubicacion">Ubicación:</label>
                 <input type="text" id="ubicacion" name="ubicacion" required />
-        
+
                 <label for="fecha-mantenimiento">Fecha Último Mantenimiento:</label>
                 <input type="date" id="fecha-mantenimiento" name="fecha-mantenimiento" required />
-        
+
                 <button type="submit">Registrar</button>
             </form>
+
+    
+            <h2 style="margin-top: 50px;">Insumos Registrados</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID Insumo</th>
+                        <th>Nombre</th>
+                        <th>Descripción</th>
+                        <th>Stock</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>IN001</td>
+                        <td>Guantes de Látex</td>
+                        <td>Guantes descartables para procedimientos</td>
+                        <td>500</td>
+                    </tr>
+                    <tr>
+                        <td>IN002</td>
+                        <td>Algodón</td>
+                        <td>Algodón estéril en rollo</td>
+                        <td>120</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>Registro de Insumos</h2>
+            <form>
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required />
+
+                <label for="descripcion-insumo">Descripción:</label>
+                <input type="text" id="descripcion-insumo" name="descripcion-insumo" required />
+
+                <label for="stock">Stock:</label>
+                <input type="number" id="stock" name="stock" min="0" required />
+
+                <button type="submit">Registrar</button>
+            </form>
+            <!-- FIN INSUMOS -->
 
         </div>
     </section>
 
-
-    
+    <footer class="footer">
+        <div class="footer-container">
+            <p>&copy; 2025 Clínica Odontológica. Todos los derechos reservados.</p>
+            <ul class="footer-links">
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="#">Política de Privacidad</a></li>
+            </ul>
+        </div>
+    </footer>
 
 </body>
 

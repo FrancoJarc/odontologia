@@ -15,15 +15,13 @@
             <h1>Clínica Odontológica</h1>
             <nav>
                 <ul>
-                    <li><a href="index.html">Inicio</a></li>
-                    <li><a href="sedes-consultorios.html">Sedes</a></li>
-                    <li><a href="equipamiento.html">Equipamiento/Insumos</a></li>
-                    <li><a href="afiliados.html">Afiliados</a></li>
-                    <li><a href="odontologos.html">Odontólogos</a></li>
-                    <li><a href="citas.html">Citas</a></li>
-                    <li><a href="tratamientos.html">Tratamientos</a></li>
-                    <li><a href="historia-clinica.html">Historia Clínica</a></li>
-                    <li><a href="portal-cliente.html">Portal Paciente</a></li>
+                    <li><a href="portal-cliente.html">Inicio</a></li>
+                    <li><a href="sedes-consultorio-cliente.html">Sedes</a></li>
+                    <li><a href="odontologos-cliente.html">Odontólogos</a></li>
+                    <li><a href="citas-cliente.html">Citas</a></li>
+                    <li><a href="tratamiento-cliente.html">Tratamientos</a></li>
+                    <li><a href="historia-clinica-cliente.html">Historia Clínica</a></li>
+                    <li><a href="index.html">Portal Odontólogo</a></li>
                 </ul>
             </nav>
         </div>
@@ -67,25 +65,7 @@
                     </tr>
                 </tbody>
             </table>
-            <h2>Sedes</h2>
-            <form>
-                <fieldset>
-                    <legend>Registrar Sede</legend>
-                    <label for="nombre-sede">Nombre:</label>
-                    <input type="text" id="nombre-sede" name="nombre-sede" required />
 
-                    <label for="ciudad">Ciudad:</label>
-                    <input type="text" id="ciudad" name="ciudad" required />
-
-                    <label for="calle">Calle:</label>
-                    <input type="text" id="calle" name="calle" required />
-
-                    <label for="numero">Número:</label>
-                    <input type="number" id="numero" name="numero" min="1" required />
-
-                    <button type="submit">Crear Sede</button>
-                </fieldset>
-            </form>
 
 
 
@@ -116,27 +96,8 @@
                     </tr>
                 </tbody>
             </table>
-            
-            <h2>Consultorios</h2>
-            <form>
-                <fieldset>
-                    <legend>Registrar Consultorio</legend>
-                    <label for="id-consultorio">ID Consultorio:</label>
-                    <input type="text" id="id-consultorio" name="id-consultorio" required />
-            
-                    <label for="numero-consultorio">Número:</label>
-                    <input type="number" id="numero-consultorio" name="numero-consultorio" min="1" required />
-            
-                    <label for="id-sede-consultorio">ID Sede:</label>
-                    <select id="id-sede-consultorio" name="id-sede-consultorio" required>
-                        <option value="" disabled selected>Seleccione una sede</option>
-                        <option value="sede1">Sede Belgrano</option>
-                        <option value="sede2">Sede Liniers</option>
-                        <option value="sede3">Sede Palermo</option>
-                    </select>
-            
-                    <button type="submit">Crear Consultorio</button>
-                </fieldset>
+
+
             </form>
         </div>
     </section>
