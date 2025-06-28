@@ -4,6 +4,8 @@ if ($conn->connect_error) {
     die("Error de conexión: " . $conn->connect_error);
 }
 
+$errores = [];
+
 // Insertar afiliado grupal
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["nombre-convenio"])) {
     $nombreConvenio = $_POST["nombre-convenio"];
@@ -29,13 +31,38 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["dni"])) {
     $costos = $_POST["costo-tratamiento"];
     $idGrupal = $_POST["id-afiliado-grupal"] ?: NULL;
 
-    $stmt = $conn->prepare("INSERT INTO afiliado (DNI, Nombre, Apellido, Fecha_Nacimiento, Sexo, Direccion, Telefono_Fijo, Telefono_Movil, Email, Costos_Tratamientos, ID_AfiliadosGrupales) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("sssssssssds", $dni, $nombre, $apellido, $fechaNacimiento, $sexo, $direccion, $telefonoFijo, $telefonoMovil, $email, $costos, $idGrupal);
-    $stmt->execute();
-    $stmt->close();
+    // Validación nombre y apellido
+    if (!preg_match("/^[a-zA-ZÁÉÍÓÚÜÑáéíóúüñ\s]+$/", $nombre)) {
+        $errores[] = "El nombre solo debe contener letras.";
+    }
+
+    if (!preg_match("/^[a-zA-ZÁÉÍÓÚÜÑáéíóúüñ\s]+$/", $apellido)) {
+        $errores[] = "El apellido solo debe contener letras.";
+    }
+
+    // Validación DNI
+    if (!ctype_digit($dni) || strlen($dni) < 7 || strlen($dni) > 10) {
+        $errores[] = "El DNI debe tener entre 7 y 10 dígitos numéricos.";
+    } else {
+        $checkDni = $conn->prepare("SELECT 1 FROM afiliado WHERE DNI = ?");
+        $checkDni->bind_param("s", $dni);
+        $checkDni->execute();
+        $checkDni->store_result();
+        if ($checkDni->num_rows > 0) {
+            $errores[] = "El DNI ya está registrado.";
+        }
+        $checkDni->close();
+    }
+
+    if (empty($errores)) {
+        $stmt = $conn->prepare("INSERT INTO afiliado (DNI, Nombre, Apellido, Fecha_Nacimiento, Sexo, Direccion, Telefono_Fijo, Telefono_Movil, Email, Costos_Tratamientos, ID_AfiliadosGrupales) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param("sssssssssds", $dni, $nombre, $apellido, $fechaNacimiento, $sexo, $direccion, $telefonoFijo, $telefonoMovil, $email, $costos, $idGrupal);
+        $stmt->execute();
+        $stmt->close();
+    }
 }
 
-// Obtener listas para mostrar
+// Obtener listas
 $grupales = $conn->query("SELECT * FROM afiliadosgrupales");
 $individuales = $conn->query("SELECT a.*, g.Nombre_Convenio FROM afiliado a LEFT JOIN afiliadosgrupales g ON a.ID_AfiliadosGrupales = g.ID_AfiliadosGrupales");
 ?>
@@ -48,7 +75,6 @@ $individuales = $conn->query("SELECT a.*, g.Nombre_Convenio FROM afiliado a LEFT
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Afiliados - Clínica Odontológica</title>
     <link rel="stylesheet" href="../css/estilos.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
 </head>
 
 <body>
@@ -73,6 +99,12 @@ $individuales = $conn->query("SELECT a.*, g.Nombre_Convenio FROM afiliado a LEFT
 
     <section class="afiliados">
         <div class="container">
+            <?php if (!empty($errores)): ?>
+                <script>
+                    alert(`<?= implode("\\n", array_map("htmlspecialchars", $errores)) ?>`);
+                </script>
+            <?php endif; ?>
+
             <h3>Lista de Afiliados Grupales</h3>
             <table>
                 <thead>
@@ -86,8 +118,8 @@ $individuales = $conn->query("SELECT a.*, g.Nombre_Convenio FROM afiliado a LEFT
                     <?php while ($g = $grupales->fetch_assoc()): ?>
                         <tr>
                             <td><?= $g["ID_AfiliadosGrupales"] ?></td>
-                            <td><?= $g["Nombre_Convenio"] ?></td>
-                            <td><?= $g["Porcentaje_Descuento"] ?></td>
+                            <td><?= htmlspecialchars($g["Nombre_Convenio"]) ?></td>
+                            <td><?= htmlspecialchars($g["Porcentaje_Descuento"]) ?></td>
                         </tr>
                     <?php endwhile; ?>
                 </tbody>
@@ -119,10 +151,10 @@ $individuales = $conn->query("SELECT a.*, g.Nombre_Convenio FROM afiliado a LEFT
                     <?php while ($a = $individuales->fetch_assoc()): ?>
                         <tr>
                             <td><?= $a["ID_Afiliado"] ?></td>
-                            <td><?= $a["DNI"] ?></td>
-                            <td><?= $a["Nombre"] ?></td>
-                            <td><?= $a["Apellido"] ?></td>
-                            <td><?= $a["Nombre_Convenio"] ?? "Ninguno" ?></td>
+                            <td><?= htmlspecialchars($a["DNI"]) ?></td>
+                            <td><?= htmlspecialchars($a["Nombre"]) ?></td>
+                            <td><?= htmlspecialchars($a["Apellido"]) ?></td>
+                            <td><?= htmlspecialchars($a["Nombre_Convenio"] ?? "Ninguno") ?></td>
                         </tr>
                     <?php endwhile; ?>
                 </tbody>
@@ -172,7 +204,7 @@ $individuales = $conn->query("SELECT a.*, g.Nombre_Convenio FROM afiliado a LEFT
                     $resultGrupos = $conn->query("SELECT ID_AfiliadosGrupales, Nombre_Convenio FROM afiliadosgrupales");
                     while ($row = $resultGrupos->fetch_assoc()):
                     ?>
-                        <option value="<?= $row['ID_AfiliadosGrupales'] ?>"><?= $row['Nombre_Convenio'] ?></option>
+                        <option value="<?= $row['ID_AfiliadosGrupales'] ?>"><?= htmlspecialchars($row['Nombre_Convenio']) ?></option>
                     <?php endwhile; ?>
                 </select>
 

@@ -10,10 +10,16 @@ if (isset($_POST['nombre-sede'])) {
     $ciudad = $_POST["ciudad"];
     $calle = $_POST["calle"];
     $numero = $_POST["numero"];
-    $stmt = $conn->prepare("INSERT INTO Sede (Nombre, Ciudad, Calle, Numero) VALUES (?, ?, ?, ?)");
-    $stmt->bind_param("sssi", $nombre, $ciudad, $calle, $numero);
-    $stmt->execute();
-    $stmt->close();
+
+    // Validación solo letras
+    if (!preg_match("/^[A-Za-zÁÉÍÓÚáéíóúñÑ\s]+$/", $nombre) || !preg_match("/^[A-Za-zÁÉÍÓÚáéíóúñÑ\s]+$/", $ciudad)) {
+        echo "<script>alert('Nombre de sede y ciudad solo pueden contener letras.');</script>";
+    } else {
+        $stmt = $conn->prepare("INSERT INTO Sede (Nombre, Ciudad, Calle, Numero) VALUES (?, ?, ?, ?)");
+        $stmt->bind_param("sssi", $nombre, $ciudad, $calle, $numero);
+        $stmt->execute();
+        $stmt->close();
+    }
 }
 
 // Insertar nuevo consultorio
@@ -30,7 +36,7 @@ if (isset($_POST['numero-consultorio'])) {
 $sedes = $conn->query("SELECT ID_Sede, Nombre, Ciudad, Calle, Numero FROM Sede");
 $sedesParaSelect = $conn->query("SELECT ID_Sede, Nombre FROM Sede");
 
-// Obtener consultorios con sede
+// Obtener consultorios
 $consultorios = $conn->query("
     SELECT c.ID_Consultorio, c.Numero, s.Nombre AS Sede 
     FROM Consultorio c 
@@ -97,17 +103,17 @@ $consultorios = $conn->query("
             </table>
 
             <h2>Sedes</h2>
-            <form method="POST" action="">
+            <form method="POST" action="" id="form-sede">
                 <fieldset>
                     <legend>Registrar Sede</legend>
                     <label for="nombre-sede">Nombre:</label>
-                    <input type="text" id="nombre-sede" name="nombre-sede" required />
+                    <input type="text" id="nombre-sede" name="nombre-sede" required maxlength="50" />
 
                     <label for="ciudad">Ciudad:</label>
-                    <input type="text" id="ciudad" name="ciudad" required />
+                    <input type="text" id="ciudad" name="ciudad" required maxlength="50" />
 
                     <label for="calle">Calle:</label>
-                    <input type="text" id="calle" name="calle" required />
+                    <input type="text" id="calle" name="calle" required maxlength="100" />
 
                     <label for="numero">Número:</label>
                     <input type="number" id="numero" name="numero" min="1" required />
@@ -168,6 +174,27 @@ $consultorios = $conn->query("
             </ul>
         </div>
     </footer>
+
+    <!-- Validación JS: solo letras en nombre y ciudad -->
+    <script>
+        document.getElementById('form-sede').addEventListener('submit', function(e) {
+            const nombre = document.getElementById('nombre-sede').value.trim();
+            const ciudad = document.getElementById('ciudad').value.trim();
+            const soloLetras = /^[A-Za-zÁÉÍÓÚáéíóúñÑ\s]+$/;
+
+            if (!soloLetras.test(nombre)) {
+                alert('El nombre de la sede debe contener solo letras.');
+                e.preventDefault();
+                return;
+            }
+
+            if (!soloLetras.test(ciudad)) {
+                alert('La ciudad debe contener solo letras.');
+                e.preventDefault();
+                return;
+            }
+        });
+    </script>
 </body>
 
 </html>

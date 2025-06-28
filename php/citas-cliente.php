@@ -47,7 +47,7 @@ $citas = $conn->query("
     JOIN odontologo o ON c.ID_Odontologo = o.ID_Odontologo
     JOIN sede s ON c.ID_Sede = s.ID_Sede
     JOIN tratamiento t ON c.ID_Tratamiento = t.ID_Tratamiento
-    ORDER BY c.Fecha DESC
+    ORDER BY ID_Cita ASC
 ");
 ?>
 

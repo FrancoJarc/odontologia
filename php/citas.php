@@ -10,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $id_odontologo = $_POST["id-odontologo"];
     $id_sede = $_POST["id-sede"];
     $id_tratamiento = $_POST["id-tratamiento"];
-    $fecha_completa = $_POST["fecha-hora"]; // YYYY-MM-DDTHH:MM
+    $fecha_completa = $_POST["fecha-hora"];
 
     // Convertir a formato compatible con MySQL DATETIME
     $fecha = date("Y-m-d H:i:s", strtotime($fecha_completa));
@@ -21,14 +21,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->close();
 }
 
-// Obtener citas con nombres relacionados
+// Obtener citas con nombres y apellidos relacionados
 $citas = $conn->query("
-    SELECT c.ID_Cita, a.Nombre AS Afiliado, o.Nombre AS Odontologo, s.Nombre AS Sede, t.Nombre AS Tratamiento, c.Fecha
+    SELECT c.ID_Cita, 
+           CONCAT(a.Nombre, ' ', a.Apellido) AS Afiliado, 
+           CONCAT(o.Nombre, ' ', o.Apellido) AS Odontologo, 
+           s.Nombre AS Sede, 
+           t.Nombre AS Tratamiento, 
+           c.Fecha
     FROM Cita c
     JOIN Afiliado a ON c.ID_Afiliado = a.ID_Afiliado
     JOIN Odontologo o ON c.ID_Odontologo = o.ID_Odontologo
     JOIN Sede s ON c.ID_Sede = s.ID_Sede
     JOIN Tratamiento t ON c.ID_Tratamiento = t.ID_Tratamiento
+    ORDER BY c.ID_Cita ASC
 ");
 
 // Cargar opciones para los <select>
@@ -104,7 +110,7 @@ $tratamientos = $conn->query("SELECT ID_Tratamiento, Código, Nombre FROM Tratam
                     <option value="">Seleccionar afiliado</option>
                     <?php while ($a = $afiliados->fetch_assoc()): ?>
                         <option value="<?= $a['ID_Afiliado'] ?>">
-                            <?= $a['ID_Afiliado'] . " - " . $a['Nombre'] . " " . $a['Apellido'] ?>
+                            <?= $a['Nombre'] . " " . $a['Apellido'] ?>
                         </option>
                     <?php endwhile; ?>
                 </select>
@@ -114,7 +120,7 @@ $tratamientos = $conn->query("SELECT ID_Tratamiento, Código, Nombre FROM Tratam
                     <option value="">Seleccionar odontólogo</option>
                     <?php while ($o = $odontologos->fetch_assoc()): ?>
                         <option value="<?= $o['ID_Odontologo'] ?>">
-                            <?= $o['ID_Odontologo'] . " - " . $o['Nombre'] . " " . $o['Apellido'] ?>
+                            <?= $o['Nombre'] . " " . $o['Apellido'] ?>
                         </option>
                     <?php endwhile; ?>
                 </select>
@@ -123,7 +129,7 @@ $tratamientos = $conn->query("SELECT ID_Tratamiento, Código, Nombre FROM Tratam
                 <select id="id-sede" name="id-sede" required>
                     <option value="">Seleccionar sede</option>
                     <?php while ($s = $sedes->fetch_assoc()): ?>
-                        <option value="<?= $s['ID_Sede'] ?>"><?= $s['ID_Sede'] . " - " . $s['Nombre'] ?></option>
+                        <option value="<?= $s['ID_Sede'] ?>"><?= $s['Nombre'] ?></option>
                     <?php endwhile; ?>
                 </select>
 
